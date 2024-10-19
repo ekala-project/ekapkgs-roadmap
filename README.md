@@ -1,10 +1,22 @@
-# Poly-repo Nixpkgs Fork
+# Ekapkgs poly-repo Nixpkgs fork "Nixpkgs for mortals"
 
 Why? Although a single mono-repo makes it easy for dealing with issues which
 span many language ecosystems or subtle software interactions, it also causes
 many maintenance issues. Issues like commit access giving "too much power", high
 noise to signal ration in issues and PRs for contributors, and other issues makes
 it difficult to maintain nixpkgs from a human perspective.
+
+In particular, this fork tries to address the following issues:
+- Process iteration: Replacing slow RFC process with more [empowering improvement process](https://github.com/ekala-project/eeps)
+- Usability: Nixpkgs is plagued with a large number of a "poor user experiences", there will be conscious efforts to remedy these scenarios.
+- Repository/VCS size: Mitigated by having the large package sets reside in respective repository locations
+- Extensibility: Provide abstractions which make extending the package set with personal or business software easier
+- Modern official CI tooling: Make managing your personal or business package sets easier with first class CI/CD solutions.
+- Documentation: Clear and concise official documenation for onboarding to Nix+ekapkgs, as well as stellar reference documentation.
+- Small polished core package set system modules:
+  - Cheaper pkgs and module evaluation
+  - No staging workflow (changes go to master, instead of a 2-4 week long workflow)
+  - All builds must successfully build, never worry that something is broken.
 
 ## Basic repository overview
 
@@ -19,7 +31,7 @@ less emphasis on dogmatic best practices.
 
 ```mermaid
 flowchart RL
-    pkgs["Pkgs + PkgsModules"]
+    ekapkgs["Pkgs + PkgsModules"]
     Core["Core + CoreModules"]
     Stdenv --> Lib
     Core --> Stdenv
@@ -27,12 +39,12 @@ flowchart RL
     Haskell --> Core
     Node --> Core
     etc... --> Core
-    pkgs --> Core
-    pkgs --> Python
-    pkgs --> Haskell
-    pkgs --> Node
-    pkgs --> etc...
-    UserPkgs --> pkgs
+    ekapkgs --> Core
+    ekapkgs --> Python
+    ekapkgs --> Haskell
+    ekapkgs --> Node
+    ekapkgs --> etc...
+    UserPkgs --> ekapkgs
 ```
 
 ## Repository descriptions
@@ -67,13 +79,13 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
   - Allows for people getting started with Nix to share expressions in a semi-centralized manner
   - Linting and basic concerns for code quality still upheld, but less of an emphasis from "official" overlays
 
-## NixOS Modules
+## System Nix-Modules
 
 - [ ] Core Modules
   - "Minimal" set of modules to create a usable NixOS system
   - Targeting mostly enterprise, edge compute, and single purpose systems
 - [ ] Pkgs Modules
-  - "Complete" set of modules, appropriate for most end-users
+  - "Complete" set of modules, appropriate for most desktop/personal end-users
   - Analogous to the current nixpkgs/nixos module collection
 
 ## Additional Proposals
