@@ -12,7 +12,7 @@ In particular, this fork tries to address the following issues:
 - Repository/VCS size: Mitigated by having the large package sets reside in respective repository locations
 - Extensibility: Provide abstractions which make extending the package set with personal or business software easier
 - Modern official CI tooling: Make managing your personal or business package sets easier with first class CI/CD solutions.
-- Documentation: Clear and concise official documenation for onboarding to Nix+ekapkgs, as well as stellar reference documentation.
+- Documentation: Clear and concise official documentation for onboarding to Nix+ekapkgs, as well as stellar reference documentation.
 - Small polished core package set system modules:
   - Cheaper pkgs and module evaluation
   - No staging workflow (changes go to master, instead of a 2-4 week long workflow)
