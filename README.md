@@ -118,3 +118,7 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
   - Most likely use another tool to handling the gc root metadata
   - Aims to solve the "ever growing cache" concerns
 - [ ] "Nix evaulator which can retain a live heap of evaluated objects to make eval diffs quick and cheap"
+
+## Community
+
+Discord: https://discord.gg/JG6zmPTutq
