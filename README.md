@@ -31,7 +31,7 @@ less emphasis on dogmatic best practices.
 
 ```mermaid
 flowchart RL
-    ekapkgs["Pkgs + PkgsModules"]
+    ekapkgs["Ekapkgs + EkaModules"]
     Core["Core + CoreModules"]
     Core --> Lib
     Python --> Core
