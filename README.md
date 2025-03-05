@@ -33,8 +33,7 @@ less emphasis on dogmatic best practices.
 flowchart RL
     ekapkgs["Pkgs + PkgsModules"]
     Core["Core + CoreModules"]
-    Stdenv --> Lib
-    Core --> Stdenv
+    Core --> Lib
     Python --> Core
     Haskell --> Core
     Node --> Core
