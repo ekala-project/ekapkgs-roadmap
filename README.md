@@ -3,7 +3,7 @@
 Why? Although a single mono-repo makes it easy for dealing with issues which
 span many language ecosystems or subtle software interactions, it also causes
 many maintenance issues. Issues like commit access giving "too much power", high
-noise to signal ration in issues and PRs for contributors, and other issues makes
+noise to signal ratio in issues and PRs for contributors, and other issues makes
 it difficult to maintain nixpkgs from a human perspective.
 
 In particular, this fork tries to address the following issues:
