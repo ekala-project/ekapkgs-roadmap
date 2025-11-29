@@ -21,7 +21,7 @@ In particular, this fork tries to address the following issues:
 ## Basic repository overview
 
 Repositories will be structured in a way where the most impactful packages
-can reside in the "stdenv" and "core" repositories. From this core, language
+can reside in the "core" repository. From this core, language
 ecosystem packages and other package ecosystems can branch off of core and these
 "vertical slices" can be curated independently from the others. The `pkgs` repository
 allows for all of these packages to be recombined through overlays into a single package set similar
@@ -52,13 +52,8 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
 
 - [x] [Standalone Lib](https://github.com/jonringer/nix-lib)
   - nixpkgs/lib but reduced to just nix utilities
-  - lib.systems is moved to stdenv repo
+  - lib.systems is moved to corepkgs repo
   - lib.maintainers and lib.teams moved to core
-- [x] [Stdenv Repo](https://github.com/jonringer/stdenv):
-  - Encapsulates bootstraping the `stdenv` package for platforms.
-  - Handles package splicing and cross compilation concerns
-  - Contains the logic for `pkgs.config` and overlay application
-  - Maintained by a dedicated team of individuals
 - [x] [Core Repo](https://github.com/jonringer/core-pkgs):
   - Targeting "development and deployment" scenarios
   - Provides the stdenv.mkDerivations (e.g. buildPythonPackage) helpers
