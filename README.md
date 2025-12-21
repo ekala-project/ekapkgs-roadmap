@@ -8,15 +8,15 @@ it difficult to maintain nixpkgs from a human perspective.
 
 In particular, this fork tries to address the following issues:
 - Process iteration: Replacing slow RFC process with more [empowering improvement process](https://github.com/ekala-project/eeps)
-- Usability: Nixpkgs is plagued with a large number of a "poor user experiences", there will be conscious efforts to remedy these scenarios.
+- Usability: Nixpkgs is plagued with a large number of "poor user experiences", there will be conscious efforts to remedy these scenarios
 - Repository/VCS size: Mitigated by having the large package sets reside in respective repository locations
 - Extensibility: Provide abstractions which make extending the package set with personal or business software easier
-- Modern official CI tooling: Make managing your personal or business package sets easier with first class CI/CD solutions.
-- Documentation: Clear and concise official documentation for onboarding to Nix+ekapkgs, as well as stellar reference documentation.
+- Modern official CI tooling: Make managing your personal or business package sets easier with first class CI/CD solutions
+- Documentation: Clear and concise official documentation for onboarding to Nix+ekapkgs, as well as stellar reference documentation
 - Small polished core package set system modules:
   - Cheaper pkgs and module evaluation
   - No staging workflow (changes go to master, instead of a 2-4 week long workflow)
-  - All builds must successfully build, never worry that something is broken.
+  - All builds must successfully build, never worry that something is broken
 
 ## Basic repository overview
 
@@ -50,7 +50,7 @@ flowchart RL
 
 All repositories will be Nix 2.3 compatible, with optional flake.nix entry points.
 
-- [x] [Standalone Lib](https://github.com/jonringer/nix-lib)
+- [x] [Standalone Lib](https://github.com/jonringer/nix-lib):
   - nixpkgs/lib but reduced to just nix utilities
   - lib.systems is moved to corepkgs repo
   - lib.maintainers and lib.teams moved to core
@@ -58,8 +58,8 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
   - Targeting "development and deployment" scenarios
   - Provides the stdenv.mkDerivations (e.g. buildPythonPackage) helpers
   - Provides a few thousand of the most common development dependencies
-    - Desire here is to provide the 20% of packages which are used 80% of the time.
-  - Bootstrap language ecosystem package sets.
+    - Desire here is to provide the 20% of packages which are used 80% of the time
+  - Bootstrap language ecosystem package sets
   - Contains maintainer information
 - [ ] Language package sets:
   - Contain a top-level overlay and `overrideScope` of the package set with richer set of packages
@@ -69,16 +69,16 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
   - Combines all of the langauge package set overlays
   - Acts as the "backstop" for all packages which have "trickier" dependency requirements
 - [ ] User-pkgs:
-  - The NUR/"AUR" equivalent.
+  - The NUR/"AUR" equivalent
   - Allows for people getting started with Nix to share expressions in a semi-centralized manner
   - Linting and basic concerns for code quality still upheld, but less of an emphasis from "official" overlays
 
 ## System Nix-Modules
 
-- [ ] Core Modules
+- [ ] Core Modules:
   - "Minimal" set of modules to create a usable NixOS system
   - Targeting mostly enterprise, edge compute, and single purpose systems
-- [ ] Pkgs Modules
+- [ ] Pkgs Modules:
   - "Complete" set of modules, appropriate for most desktop/personal end-users
   - Analogous to the current nixpkgs/nixos module collection
 
