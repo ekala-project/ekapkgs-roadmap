@@ -7,7 +7,7 @@ noise to signal ratio in issues and PRs for contributors, and other issues makes
 it difficult to maintain nixpkgs from a human perspective.
 
 In particular, this fork tries to address the following issues:
-- Process iteration: Replacing slow RFC process with more [empowering improvement process](https://github.com/ekala-project/eeps)
+- Process iteration: Replacing slow RFC process with more [empowering improvement process (EEPs)](https://github.com/ekala-project/eeps)
 - Usability: Nixpkgs is plagued with a large number of "poor user experiences", there will be conscious efforts to remedy these scenarios
 - Repository/VCS size: Mitigated by having the large package sets reside in respective repository locations
 - Extensibility: Provide abstractions which make extending the package set with personal or business software easier
@@ -50,11 +50,11 @@ flowchart RL
 
 All repositories will be Nix 2.3 compatible, with optional flake.nix entry points.
 
-- [x] [Standalone Lib](https://github.com/jonringer/nix-lib):
+- [x] [Standalone Lib](https://github.com/ekala-project/nix-lib):
   - nixpkgs/lib but reduced to just nix utilities
   - lib.systems is moved to corepkgs repo
   - lib.maintainers and lib.teams moved to core
-- [x] [Core Repo](https://github.com/jonringer/core-pkgs):
+- [x] [Core Repo](https://github.com/ekala-project/corepkgs):
   - Targeting "development and deployment" scenarios
   - Provides the stdenv.mkDerivations (e.g. buildPythonPackage) helpers
   - Provides a few thousand of the most common development dependencies
@@ -63,10 +63,10 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
   - Contains maintainer information
 - [ ] Language package sets:
   - Contain a top-level overlay and `overrideScope` of the package set with richer set of packages
-  - [X] [Python Prototype](https://github.com/jonringer/python-pkgs)
+  - [x] [Python](https://github.com/ekala-project/python-pkgs)
 - [ ] Pkgs:
   - Targeting "User desktop" scenarios, most software will be available here
-  - Combines all of the langauge package set overlays
+  - Combines all of the language package set overlays
   - Acts as the "backstop" for all packages which have "trickier" dependency requirements
 - [ ] User-pkgs:
   - The NUR/"AUR" equivalent
@@ -84,6 +84,7 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
 
 ## Additional Proposals
 
+- [Ekala Enhancement Proposals (EEPs)](https://github.com/ekala-project/eeps)
 - [Ergonomic cross-compilation dependency terms](https://github.com/jonringer/rename-cross-deps-proposal)
 - [Language-ecosystem overlays as pkgs.config options](https://github.com/jonringer/language-specific-config-overlays-proposal)
 - [Standardize how packages expose versions/variants](https://github.com/jonringer/multiple-package-versions-proposal)
@@ -93,16 +94,28 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
 - [Alternative to callPackage for non-derivations](https://github.com/jonringer/scope-import-proposal)
 - [Extend pkgs.config to allow for modules to be passed](https://github.com/jonringer/pkgs-modules-proposal)
 
-## Addtional tooling
+## Additional tooling
 
-- [ ] PR review site: https://github.com/jonringer/basinix
-  - Attempt to make PR reviews less risky
-  - Build downstream packages (e.g. nixpkgs-review style)
-    - New builds, removed builds, newly succeeding, newly failing, still succeeding, still failing
-- [ ] Auto-updater similar to https://github.com/nix-community/nixpkgs-update, but:
-  - Creates issues when an automatic bump failed
-    - Logs of failed build to be easily accessible
-  - Replace re-write rules with just invocations of `nix-update`?
+- [x] CI/CD: [EkaCI](https://github.com/ekala-project/eka-ci)
+  - Successor to [basinix](https://github.com/jonringer/basinix) (archived)
+  - CI server purpose-built for Nix projects with GitHub integration
+  - Dependency graph tracking, multi-tier build scheduling, merge queue support
+  - Binary cache support (S3, Cachix, Attic) with per-repo/branch access controls
+  - Build metrics tracking (NAR size, closure size, baseline comparisons)
+- [x] Auto-updater: [ekapkgs-update](https://github.com/ekala-project/ekapkgs-update)
+  - Spiritual successor to nixpkgs-update
+  - Single package updates, daemon mode, automatic commit and PR creation
+  - CVE/vulnerability checking via OSV.dev, cross-distro version validation via Repology
+  - Per-package configuration through passthru attributes (EEP-0039)
+  - Companion web dashboard for monitoring
+- [x] Formatter: [ekapkgs-fmt](https://github.com/ekala-project/ekapkgs-fmt)
+  - Official Nix formatter for Ekapkgs
+- [x] Installer: [ekaos-install](https://github.com/ekala-project/ekaos-install)
+  - TUI/CLI for installing EkaOS (NixOS)
+  - Interactive terminal wizard with UEFI and BIOS support
+- [x] Documentation: [nix-book](https://github.com/ekala-project/nix-book)
+  - Introductory book for learning Nix, inspired by the Rust book
+  - Published at https://ekala-project.github.io/nix-book/
 
 ## Crazy ideas
 
