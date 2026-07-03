@@ -64,7 +64,9 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
 - [ ] Language package sets:
   - Contain a top-level overlay and `overrideScope` of the package set with richer set of packages
   - [x] [Python](https://github.com/ekala-project/python-pkgs)
-- [ ] Pkgs:
+  - [x] [Haskell](https://github.com/ekala-project/haskell-pkgs)
+  - [x] [Node](https://github.com/ekala-project/node-packages)
+- [ ] Ekapkgs:
   - Targeting "User desktop" scenarios, most software will be available here
   - Combines all of the language package set overlays
   - Acts as the "backstop" for all packages which have "trickier" dependency requirements
@@ -93,6 +95,8 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
 - [Align nix expression file paths to attr path](https://github.com/jonringer/normalize-attr-to-path-proposal)
 - [Alternative to callPackage for non-derivations](https://github.com/jonringer/scope-import-proposal)
 - [Extend pkgs.config to allow for modules to be passed](https://github.com/jonringer/pkgs-modules-proposal)
+- [Explicit phase hooks](https://github.com/ekala-project/eeps/pull/37)
+- [Stable overlays for LTS releases](https://github.com/ekala-project/eeps/pull/40)
 
 ## Additional tooling
 
@@ -108,8 +112,7 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
   - CVE/vulnerability checking via OSV.dev, cross-distro version validation via Repology
   - Per-package configuration through passthru attributes (EEP-0039)
   - Companion web dashboard for monitoring
-- [x] Formatter: [ekapkgs-fmt](https://github.com/ekala-project/ekapkgs-fmt)
-  - Official Nix formatter for Ekapkgs
+- [x] Formatter: nixfmt-rs
 - [x] Installer: [ekaos-install](https://github.com/ekala-project/ekaos-install)
   - TUI/CLI for installing EkaOS (NixOS)
   - Interactive terminal wizard with UEFI and BIOS support
@@ -124,6 +127,7 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
     - This would likely need to be passed to jobset evaluation
   - Most likely use another tool to handling the gc root metadata
   - Aims to solve the "ever growing cache" concerns
+  - [niks3](https://github.com/Mic92/niks3) may be a valid solution
 - [ ] "Nix evaulator which can retain a live heap of evaluated objects to make eval diffs quick and cheap"
 
 ## Community
