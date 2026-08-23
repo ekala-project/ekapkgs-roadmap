@@ -36,12 +36,12 @@ flowchart RL
     Core --> Lib
     Python --> Core
     Haskell --> Core
-    Node --> Core
+    VimPlugins --> Core
     etc... --> Core
     ekapkgs --> Core
     ekapkgs --> Python
     ekapkgs --> Haskell
-    ekapkgs --> Node
+    ekapkgs --> VimPlugins
     ekapkgs --> etc...
     UserPkgs --> ekapkgs
 ```
@@ -61,12 +61,14 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
     - Desire here is to provide the 20% of packages which are used 80% of the time
   - Bootstrap language ecosystem package sets
   - Contains maintainer information
-- [ ] Language package sets:
+- [x] Language and ecosystem package sets:
   - Contain a top-level overlay and `overrideScope` of the package set with richer set of packages
   - [x] [Python](https://github.com/ekala-project/python-pkgs)
   - [x] [Haskell](https://github.com/ekala-project/haskell-pkgs)
-  - [x] [Node](https://github.com/ekala-project/node-packages)
-- [ ] Ekapkgs:
+  - [x] [Vim Plugins](https://github.com/ekala-project/vim-plugins)
+  - [x] [R Packages](https://github.com/ekala-project/r-pkgs)
+  - [x] [CUDA packages](https://github.com/ekala-project/cuda-pkgs)
+- [x] [Ekapkgs](https://github.com/ekala-project/ekapkgs):
   - Targeting "User desktop" scenarios, most software will be available here
   - Combines all of the language package set overlays
   - Acts as the "backstop" for all packages which have "trickier" dependency requirements
@@ -77,11 +79,13 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
 
 ## System Nix-Modules
 
-- [ ] Core Modules:
+- [x] Core Modules:
   - "Minimal" set of modules to create a usable NixOS system
+  - Most boot, kernel, networking, filesystem, etc options are contained here
   - Targeting mostly enterprise, edge compute, and single purpose systems
 - [ ] Pkgs Modules:
   - "Complete" set of modules, appropriate for most desktop/personal end-users
+  - Most options for programs, desktop environments, window managers, etc are contained here
   - Analogous to the current nixpkgs/nixos module collection
 
 ## Additional Proposals
@@ -97,6 +101,8 @@ All repositories will be Nix 2.3 compatible, with optional flake.nix entry point
 - [Extend pkgs.config to allow for modules to be passed](https://github.com/jonringer/pkgs-modules-proposal)
 - [Explicit phase hooks](https://github.com/ekala-project/eeps/pull/37)
 - [Stable overlays for LTS releases](https://github.com/ekala-project/eeps/pull/40)
+- [Port contracts](https://github.com/ekala-project/eeps/pull/41)
+- [mkDerivation -> mkEkaPackage](https://github.com/ekala-project/eeps/pull/42)
 
 ## Additional tooling
 
